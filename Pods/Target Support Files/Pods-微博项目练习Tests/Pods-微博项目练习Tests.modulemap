@@ -1,0 +1,6 @@
+framework module Pods_______Tests {
+  umbrella header "Pods-微博项目练习Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
