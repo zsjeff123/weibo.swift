@@ -125,7 +125,16 @@ extension StatusPictureView{
                 }
             }
             
+            //图像过窄处理--针对长图
+            size.width = size.width < 40 ? 40 : size.width
+            //图像过宽处理，等比缩放
+            if size.width > 300 {
+                let w : CGFloat = 300
+                let h = size.height * w / size.width
+                size = CGSize(width: w, height: h)
+            }
           
+            
             //`layout.itemSize` 是一个用于设置 `UICollectionViewFlowLayout` 布局对象中单元格（Item）大小的属性。
             //内部图片的大小
             layout.itemSize = size

@@ -33,7 +33,9 @@ class HomeTableViewController: VisitorTableViewController{
         }
         //不要漏了这些调用方法的步骤
         prepareTableView()
+        
         loadData()
+        //refreshControl?.beginRefreshing()
     }
     
     ///准备表格
@@ -50,14 +52,34 @@ class HomeTableViewController: VisitorTableViewController{
         //自动计算行高 - 需要自上而下的自动布局的控件，控件指定一个向下的约束
         //预估行高
         tableView.estimatedRowHeight = 400
-       
         
+        //下拉刷新控制默认没有   高度默认60
+        //加上控件
+        refreshControl = WBRefreshedControl()
+        //添加下拉刷新监听方法
+        refreshControl?.addTarget(self, action: #selector(loadData), for: UIControl.Event.valueChanged)
+        
+        
+        
+        //设置tintcolor
+        refreshControl?.tintColor = UIColor.blue
+       
+        //上拉刷新视图
+        tableView.tableFooterView = pullupView
     }
     
     // MARK: - 加载首页数据
-  private   func loadData(){
+    @objc   private   func loadData(){
+        //主动播放动画
+        refreshControl?.beginRefreshing()
         
-        listViewModel.loadStatus { isSuccessed in
+        listViewModel.loadStatus(isPullup: pullupView.isAnimating) { isSuccessed in
+            
+            //关闭刷新控件
+            self.refreshControl?.endRefreshing()
+            //关闭上拉刷新
+            self.pullupView.stopAnimating()
+            
             if !isSuccessed{
                 SVProgressHUD.showInfo(withStatus: "加载数据错误，请稍后再试")
                 return
@@ -66,43 +88,51 @@ class HomeTableViewController: VisitorTableViewController{
             //刷新数据
             self.tableView.reloadData()
         }
-       
+        
         //用StatusListViewModel
         
         /*未写视图模型文件StatusListViewModel时的写法
          NetworkTools.sharedTools.loadStatus { result, error in
-            if error != nil{
-                print("出错了")
-                return
-            }
-            //判断result的数据结构是否正确
-            //[[String: Any]]字典数组的写法
-            guard let result = result as? [String: Any],
-                  let array = result["statuses"] as? [[String: Any]] else {
-                print("数据格式错误")
-                return
-            }
-            //print(array)
-            //拿到字典的数组--需要遍历字典的数组，字典转模型
-            
-            //1.可变的数组
-            var dataList = [Status]()
-            //2.遍历数组
-            for dict in array{
-                dataList.append(Status(dict: dict))
-            }
-                //3.测试
-                print(dataList)
-                
-                //绑定的数据重新赋值来达到刷新效果
-                self.dataList = dataList
-                //4.刷新数据
-                self.tableView.reloadData()
-                
-            }*/
-        }
+         if error != nil{
+         print("出错了")
+         return
+         }
+         //判断result的数据结构是否正确
+         //[[String: Any]]字典数组的写法
+         guard let result = result as? [String: Any],
+         let array = result["statuses"] as? [[String: Any]] else {
+         print("数据格式错误")
+         return
+         }
+         //print(array)
+         //拿到字典的数组--需要遍历字典的数组，字典转模型
          
-    }
+         //1.可变的数组
+         var dataList = [Status]()
+         //2.遍历数组
+         for dict in array{
+         dataList.append(Status(dict: dict))
+         }
+         //3.测试
+         print(dataList)
+         
+         //绑定的数据重新赋值来达到刷新效果
+         self.dataList = dataList
+         //4.刷新数据
+         self.tableView.reloadData()
+         
+         }*/
+       }
+    // MARK: - 懒加载控件--上拉刷新
+    ///上拉刷新提示视图
+    private lazy var pullupView: UIActivityIndicatorView = {
+        
+        let indicator = UIActivityIndicatorView(style:UIActivityIndicatorView.Style.whiteLarge)
+        indicator.color = UIColor.lightGray
+        return indicator
+    }()
+}
+
 
     // MARK: - 数据源方法
 extension HomeTableViewController{
@@ -137,7 +167,21 @@ extension HomeTableViewController{
         
         //3.设置视图模型
         cell.viewModel = vm
+        
+        //4.判断是否是最后一条微博
+        if indexPath.row == listViewModel.statusList.count - 1 && !pullupView.isAnimating{
+            //开始动画
+            pullupView.startAnimating()
+            
+            //上拉刷新数据
+            loadData()
+            
+            print("上拉刷新")
+        }
+        
+        
         return cell
+        
     }
     
     //表格指定单元格高度
