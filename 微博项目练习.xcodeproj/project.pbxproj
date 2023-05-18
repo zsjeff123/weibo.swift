@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2448E0E5A0A78BB9283ABFB3 /* Pods______________UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D1D6E53D9ECB4DDDB6907D /* Pods______________UITests.framework */; };
+		5C7F037A2A1522F500428FF8 /* QorumLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F03792A1522F500428FF8 /* QorumLogs.swift */; };
+		5C7F03BA2A154F6900428FF8 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F03B92A154F6900428FF8 /* NSDate+Extension.swift */; };
+		5C7F03FA2A15F06E00428FF8 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F03F92A15F06E00428FF8 /* String+Regex.swift */; };
 		5C8DD0F329FE17F300DAD14E /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD0F229FE17F300DAD14E /* NewFeatureViewController.swift */; };
 		5C8DD0F529FE8C0F00DAD14E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD0F429FE8C0F00DAD14E /* WelcomeViewController.swift */; };
 		5C8DD0F729FFB47A00DAD14E /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD0F629FFB47A00DAD14E /* Status.swift */; };
@@ -22,6 +25,30 @@
 		5C8DD10A2A0292C900DAD14E /* StatusNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD1092A0292C900DAD14E /* StatusNormalCell.swift */; };
 		5C8DD10D2A04AE6800DAD14E /* WBRefreshedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD10C2A04AE6800DAD14E /* WBRefreshedControl.swift */; };
 		5C8DD10F2A05E37800DAD14E /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8DD10E2A05E37800DAD14E /* WBRefreshView.xib */; };
+		5C8DD2582A09F41C00DAD14E /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD2572A09F41C00DAD14E /* ComposeViewController.swift */; };
+		5C8DD25C2A0A8F2C00DAD14E /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD25B2A0A8F2C00DAD14E /* UIBarButtonItem+Extension.swift */; };
+		5C8DD2682A0ABE3200DAD14E /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD25F2A0ABE3200DAD14E /* EmoticonManager.swift */; };
+		5C8DD2692A0ABE3200DAD14E /* EmoticonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD2602A0ABE3200DAD14E /* EmoticonView.swift */; };
+		5C8DD26A2A0ABE3200DAD14E /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C8DD2612A0ABE3200DAD14E /* Emoticons.bundle */; };
+		5C8DD26B2A0ABE3200DAD14E /* EmoticonAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD2622A0ABE3200DAD14E /* EmoticonAttachment.swift */; };
+		5C8DD26C2A0ABE3200DAD14E /* Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD2642A0ABE3200DAD14E /* Emoticon.swift */; };
+		5C8DD26D2A0ABE3200DAD14E /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD2652A0ABE3200DAD14E /* EmoticonPackage.swift */; };
+		5C8DD26E2A0ABE3200DAD14E /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD2662A0ABE3200DAD14E /* String+Emoji.swift */; };
+		5C8DD26F2A0ABE3200DAD14E /* UITextView+Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD2672A0ABE3200DAD14E /* UITextView+Emoticon.swift */; };
+		5C8DD30F2A0BFC9700DAD14E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD30E2A0BFC9600DAD14E /* UIImage+Extension.swift */; };
+		5C8DD3122A0BFCBD00DAD14E /* PicturePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD3112A0BFCBD00DAD14E /* PicturePickerController.swift */; };
+		5C8DD3162A0C8FA900DAD14E /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD3152A0C8FA900DAD14E /* PhotoBrowserViewController.swift */; };
+		5C8DD3182A0CAADA00DAD14E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD3172A0CAADA00DAD14E /* UIColor+Extension.swift */; };
+		5C8DD31A2A0CACC800DAD14E /* PhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD3192A0CACC800DAD14E /* PhotoBrowserCell.swift */; };
+		5C8DD31C2A0DEA2B00DAD14E /* ProgressimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DD31B2A0DEA2B00DAD14E /* ProgressimageView.swift */; };
+		5C9E9EAE2A133BB70021684D /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9EA32A133BB70021684D /* FMDatabaseQueue.m */; };
+		5C9E9EAF2A133BB70021684D /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9EA62A133BB70021684D /* FMDatabaseAdditions.m */; };
+		5C9E9EB02A133BB70021684D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9EA72A133BB70021684D /* FMDatabase.m */; };
+		5C9E9EB12A133BB70021684D /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9EAB2A133BB70021684D /* FMDatabasePool.m */; };
+		5C9E9EB22A133BB70021684D /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9EAC2A133BB70021684D /* FMResultSet.m */; };
+		5C9E9EB52A133C6E0021684D /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9EB42A133C6E0021684D /* SQLiteManager.swift */; };
+		5C9E9EBC2A133E7B0021684D /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = 5C9E9EBB2A133E7B0021684D /* db.sql */; };
+		5C9E9EBE2A146C7D0021684D /* StatusDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9EBD2A146C7D0021684D /* StatusDAL.swift */; };
 		5C9EE0EE29FD35A8009BD4AA /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EE0ED29FD35A8009BD4AA /* UserAccountViewModel.swift */; };
 		5CA7CAC129F6E2B000658A68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CAC029F6E2B000658A68 /* AppDelegate.swift */; };
 		5CA7CACA29F6E2B100658A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CA7CAC929F6E2B100658A68 /* Assets.xcassets */; };
@@ -39,6 +66,7 @@
 		5CA7CB1B29F8C9A200658A68 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CB1A29F8C9A200658A68 /* UILabel+Extension.swift */; };
 		5CA7CB1D29F8CDB600658A68 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CB1C29F8CDB600658A68 /* UIImageView.swift */; };
 		5CA7CB1F29F8EA3100658A68 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7CB1E29F8EA3100658A68 /* Common.swift */; };
+		5CDA17362A0E3F6A00596DE3 /* PhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA17352A0E3F6A00596DE3 /* PhotoBrowserAnimator.swift */; };
 		5CEDF6B729FB6FBB001E907A /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEDF6B629FB6FBB001E907A /* NetworkTools.swift */; };
 		5CEDF6BA29FB7C2C001E907A /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEDF6B929FB7C2C001E907A /* OAuthViewController.swift */; };
 		5CEDF6BD29FC1470001E907A /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEDF6BC29FC1470001E907A /* UserAccount.swift */; };
@@ -64,6 +92,9 @@
 
 /* Begin PBXFileReference section */
 		0DE8224F6197CA702665739C /* Pods-微博项目练习Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-微博项目练习Tests.release.xcconfig"; path = "Target Support Files/Pods-微博项目练习Tests/Pods-微博项目练习Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5C7F03792A1522F500428FF8 /* QorumLogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QorumLogs.swift; sourceTree = "<group>"; };
+		5C7F03B92A154F6900428FF8 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		5C7F03F92A15F06E00428FF8 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
 		5C8DD0F229FE17F300DAD14E /* NewFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		5C8DD0F429FE8C0F00DAD14E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5C8DD0F629FFB47A00DAD14E /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -78,6 +109,38 @@
 		5C8DD1092A0292C900DAD14E /* StatusNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusNormalCell.swift; sourceTree = "<group>"; };
 		5C8DD10C2A04AE6800DAD14E /* WBRefreshedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBRefreshedControl.swift; sourceTree = "<group>"; };
 		5C8DD10E2A05E37800DAD14E /* WBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
+		5C8DD2572A09F41C00DAD14E /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		5C8DD25B2A0A8F2C00DAD14E /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		5C8DD25F2A0ABE3200DAD14E /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
+		5C8DD2602A0ABE3200DAD14E /* EmoticonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonView.swift; sourceTree = "<group>"; };
+		5C8DD2612A0ABE3200DAD14E /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		5C8DD2622A0ABE3200DAD14E /* EmoticonAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonAttachment.swift; sourceTree = "<group>"; };
+		5C8DD2642A0ABE3200DAD14E /* Emoticon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
+		5C8DD2652A0ABE3200DAD14E /* EmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
+		5C8DD2662A0ABE3200DAD14E /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
+		5C8DD2672A0ABE3200DAD14E /* UITextView+Emoticon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Emoticon.swift"; sourceTree = "<group>"; };
+		5C8DD30E2A0BFC9600DAD14E /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		5C8DD3112A0BFCBD00DAD14E /* PicturePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturePickerController.swift; sourceTree = "<group>"; };
+		5C8DD3152A0C8FA900DAD14E /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
+		5C8DD3172A0CAADA00DAD14E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		5C8DD3192A0CACC800DAD14E /* PhotoBrowserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCell.swift; sourceTree = "<group>"; };
+		5C8DD31B2A0DEA2B00DAD14E /* ProgressimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressimageView.swift; sourceTree = "<group>"; };
+		5C9E9EA22A133BB70021684D /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		5C9E9EA32A133BB70021684D /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		5C9E9EA42A133BB70021684D /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		5C9E9EA52A133BB70021684D /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		5C9E9EA62A133BB70021684D /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		5C9E9EA72A133BB70021684D /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		5C9E9EA82A133BB70021684D /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		5C9E9EA92A133BB70021684D /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		5C9E9EAA2A133BB70021684D /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		5C9E9EAB2A133BB70021684D /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		5C9E9EAC2A133BB70021684D /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		5C9E9EB42A133C6E0021684D /* SQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
+		5C9E9EB62A133CB80021684D /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
+		5C9E9EB72A133D320021684D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		5C9E9EBB2A133E7B0021684D /* db.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = db.sql; sourceTree = "<group>"; };
+		5C9E9EBD2A146C7D0021684D /* StatusDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDAL.swift; sourceTree = "<group>"; };
 		5C9EE0ED29FD35A8009BD4AA /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		5CA7CABD29F6E2B000658A68 /* 微博项目练习.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目练习.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA7CAC029F6E2B000658A68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +162,7 @@
 		5CA7CB1A29F8C9A200658A68 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		5CA7CB1C29F8CDB600658A68 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5CA7CB1E29F8EA3100658A68 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		5CDA17352A0E3F6A00596DE3 /* PhotoBrowserAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserAnimator.swift; sourceTree = "<group>"; };
 		5CEDF6B629FB6FBB001E907A /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		5CEDF6B929FB7C2C001E907A /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		5CEDF6BC29FC1470001E907A /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
@@ -152,6 +216,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5C7F03782A151E6D00428FF8 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				5C7F03792A1522F500428FF8 /* QorumLogs.swift */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
 		5C8DD0F129FE172200DAD14E /* New Feature(新特性) */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +255,91 @@
 			path = RefreshView;
 			sourceTree = "<group>";
 		};
+		5C8DD2562A09F35700DAD14E /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				5C8DD2572A09F41C00DAD14E /* ComposeViewController.swift */,
+			);
+			name = Compose;
+			path = "微博项目练习/Classes/View/Compose";
+			sourceTree = SOURCE_ROOT;
+		};
+		5C8DD25D2A0ABE3200DAD14E /* Emoticon（表情键盘） */ = {
+			isa = PBXGroup;
+			children = (
+				5C8DD25E2A0ABE3200DAD14E /* ViewModel */,
+				5C8DD2602A0ABE3200DAD14E /* EmoticonView.swift */,
+				5C8DD2612A0ABE3200DAD14E /* Emoticons.bundle */,
+				5C8DD2622A0ABE3200DAD14E /* EmoticonAttachment.swift */,
+				5C8DD2632A0ABE3200DAD14E /* Model */,
+				5C8DD2662A0ABE3200DAD14E /* String+Emoji.swift */,
+				5C8DD2672A0ABE3200DAD14E /* UITextView+Emoticon.swift */,
+			);
+			path = "Emoticon（表情键盘）";
+			sourceTree = "<group>";
+		};
+		5C8DD25E2A0ABE3200DAD14E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5C8DD25F2A0ABE3200DAD14E /* EmoticonManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5C8DD2632A0ABE3200DAD14E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C8DD2642A0ABE3200DAD14E /* Emoticon.swift */,
+				5C8DD2652A0ABE3200DAD14E /* EmoticonPackage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C8DD3102A0BFCBD00DAD14E /* PicturePicker（图片选择） */ = {
+			isa = PBXGroup;
+			children = (
+				5C8DD3112A0BFCBD00DAD14E /* PicturePickerController.swift */,
+			);
+			path = "PicturePicker（图片选择）";
+			sourceTree = "<group>";
+		};
+		5C8DD3142A0C8F6500DAD14E /* PictureBrowser(照片查看) */ = {
+			isa = PBXGroup;
+			children = (
+				5C8DD3152A0C8FA900DAD14E /* PhotoBrowserViewController.swift */,
+				5C8DD3192A0CACC800DAD14E /* PhotoBrowserCell.swift */,
+				5CDA17352A0E3F6A00596DE3 /* PhotoBrowserAnimator.swift */,
+				5C8DD31B2A0DEA2B00DAD14E /* ProgressimageView.swift */,
+			);
+			path = "PictureBrowser(照片查看)";
+			sourceTree = "<group>";
+		};
+		5C9E9EA12A133BB70021684D /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				5C9E9EA22A133BB70021684D /* FMDatabase.h */,
+				5C9E9EA32A133BB70021684D /* FMDatabaseQueue.m */,
+				5C9E9EA42A133BB70021684D /* FMResultSet.h */,
+				5C9E9EA52A133BB70021684D /* FMDatabasePool.h */,
+				5C9E9EA62A133BB70021684D /* FMDatabaseAdditions.m */,
+				5C9E9EA72A133BB70021684D /* FMDatabase.m */,
+				5C9E9EA82A133BB70021684D /* FMDatabaseQueue.h */,
+				5C9E9EA92A133BB70021684D /* FMDB.h */,
+				5C9E9EAA2A133BB70021684D /* FMDatabaseAdditions.h */,
+				5C9E9EAB2A133BB70021684D /* FMDatabasePool.m */,
+				5C9E9EAC2A133BB70021684D /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		5C9E9EB92A133E110021684D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5C9E9EBB2A133E7B0021684D /* db.sql */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		5CA7CAB429F6E2B000658A68 = {
 			isa = PBXGroup;
 			children = (
@@ -207,8 +364,10 @@
 		5CA7CABF29F6E2B000658A68 /* 微博项目练习 */ = {
 			isa = PBXGroup;
 			children = (
+				5C9E9EB92A133E110021684D /* Resource */,
 				5CA7CAF029F7726C00658A68 /* Classes */,
 				5CA7CAC029F6E2B000658A68 /* AppDelegate.swift */,
+				5C9E9EB62A133CB80021684D /* Weibo-Bridge.h */,
 				5CA7CAC929F6E2B100658A68 /* Assets.xcassets */,
 				5CA7CACE29F6E2B100658A68 /* Info.plist */,
 				5CA7CAE029F6E2B200658A68 /* 微博项目练习UITests */,
@@ -236,6 +395,7 @@
 		5CA7CAF029F7726C00658A68 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5C7F03782A151E6D00428FF8 /* Libs */,
 				5CA7CAF329F7726C00658A68 /* View */,
 				5CA7CAF129F7726C00658A68 /* Tools */,
 				5CA7CAF229F7726C00658A68 /* Model */,
@@ -247,9 +407,14 @@
 		5CA7CAF129F7726C00658A68 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5C9E9EA12A133BB70021684D /* fmdb */,
+				5C8DD3142A0C8F6500DAD14E /* PictureBrowser(照片查看) */,
+				5C8DD3102A0BFCBD00DAD14E /* PicturePicker（图片选择） */,
+				5C8DD25D2A0ABE3200DAD14E /* Emoticon（表情键盘） */,
 				5CA7CB0929F7C89900658A68 /* Extension */,
 				5CA7CB1E29F8EA3100658A68 /* Common.swift */,
 				5CEDF6B629FB6FBB001E907A /* NetworkTools.swift */,
+				5C9E9EB42A133C6E0021684D /* SQLiteManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -267,6 +432,7 @@
 		5CA7CAF329F7726C00658A68 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5C8DD2562A09F35700DAD14E /* Compose */,
 				5CEDF6B829FB7BFD001E907A /* OAuth */,
 				5CA7CAF829F7726C00658A68 /* Main */,
 				5CA7CAF629F7726C00658A68 /* Message */,
@@ -326,6 +492,7 @@
 			children = (
 				5C9EE0ED29FD35A8009BD4AA /* UserAccountViewModel.swift */,
 				5C8DD0F829FFDD6B00DAD14E /* StatusListviewModel.swift */,
+				5C9E9EBD2A146C7D0021684D /* StatusDAL.swift */,
 				5C8DD0FC29FFF62C00DAD14E /* StatusViewModel.swift */,
 			);
 			path = "View Model";
@@ -335,8 +502,13 @@
 			isa = PBXGroup;
 			children = (
 				5CA7CB0A29F7C90F00658A68 /* UIButton+Extension.swift */,
+				5C7F03F92A15F06E00428FF8 /* String+Regex.swift */,
 				5CA7CB1A29F8C9A200658A68 /* UILabel+Extension.swift */,
+				5C7F03B92A154F6900428FF8 /* NSDate+Extension.swift */,
+				5C8DD30E2A0BFC9600DAD14E /* UIImage+Extension.swift */,
 				5CA7CB1C29F8CDB600658A68 /* UIImageView.swift */,
+				5C8DD25B2A0A8F2C00DAD14E /* UIBarButtonItem+Extension.swift */,
+				5C8DD3172A0CAADA00DAD14E /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -361,6 +533,7 @@
 		73F7E7081E182E639E325468 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C9E9EB72A133D320021684D /* libsqlite3.tbd */,
 				E1D4004F87CE9F38FC0E5067 /* Pods_______.framework */,
 				81D1D6E53D9ECB4DDDB6907D /* Pods______________UITests.framework */,
 				BF676C29FD94B44F9E680596 /* Pods_______Tests.framework */,
@@ -478,6 +651,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CA7CACA29F6E2B100658A68 /* Assets.xcassets in Resources */,
+				5C8DD26A2A0ABE3200DAD14E /* Emoticons.bundle in Resources */,
+				5C9E9EBC2A133E7B0021684D /* db.sql in Resources */,
 				5C8DD10F2A05E37800DAD14E /* WBRefreshView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,23 +781,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8DD30F2A0BFC9700DAD14E /* UIImage+Extension.swift in Sources */,
 				5C8DD0F929FFDD6B00DAD14E /* StatusListviewModel.swift in Sources */,
+				5C7F037A2A1522F500428FF8 /* QorumLogs.swift in Sources */,
+				5C9E9EAF2A133BB70021684D /* FMDatabaseAdditions.m in Sources */,
 				5CEDF6BA29FB7C2C001E907A /* OAuthViewController.swift in Sources */,
+				5C8DD26D2A0ABE3200DAD14E /* EmoticonPackage.swift in Sources */,
 				5CA7CB0329F773C100658A68 /* ProfileTableViewController.swift in Sources */,
+				5C9E9EB52A133C6E0021684D /* SQLiteManager.swift in Sources */,
 				5CA7CAFD29F7738600658A68 /* HomeTableViewController.swift in Sources */,
+				5C8DD26F2A0ABE3200DAD14E /* UITextView+Emoticon.swift in Sources */,
 				5CA7CB1B29F8C9A200658A68 /* UILabel+Extension.swift in Sources */,
 				5C8DD0F329FE17F300DAD14E /* NewFeatureViewController.swift in Sources */,
+				5C7F03BA2A154F6900428FF8 /* NSDate+Extension.swift in Sources */,
+				5C9E9EBE2A146C7D0021684D /* StatusDAL.swift in Sources */,
+				5C8DD26C2A0ABE3200DAD14E /* Emoticon.swift in Sources */,
+				5C9E9EB12A133BB70021684D /* FMDatabasePool.m in Sources */,
 				5CA7CAC129F6E2B000658A68 /* AppDelegate.swift in Sources */,
 				5CA7CB1F29F8EA3100658A68 /* Common.swift in Sources */,
 				5CA7CAFF29F7739700658A68 /* MessageTableViewController.swift in Sources */,
+				5C8DD2682A0ABE3200DAD14E /* EmoticonManager.swift in Sources */,
+				5C9E9EB02A133BB70021684D /* FMDatabase.m in Sources */,
+				5C8DD3122A0BFCBD00DAD14E /* PicturePickerController.swift in Sources */,
 				5CA7CB0129F773AF00658A68 /* DiscoverTableViewController.swift in Sources */,
 				5C8DD10A2A0292C900DAD14E /* StatusNormalCell.swift in Sources */,
+				5CDA17362A0E3F6A00596DE3 /* PhotoBrowserAnimator.swift in Sources */,
+				5C8DD26E2A0ABE3200DAD14E /* String+Emoji.swift in Sources */,
 				5C8DD0F529FE8C0F00DAD14E /* WelcomeViewController.swift in Sources */,
 				5C8DD10D2A04AE6800DAD14E /* WBRefreshedControl.swift in Sources */,
 				5C8DD1042A0004A600DAD14E /* StatusCellButtomView.swift in Sources */,
+				5C8DD3182A0CAADA00DAD14E /* UIColor+Extension.swift in Sources */,
 				5CA7CB1D29F8CDB600658A68 /* UIImageView.swift in Sources */,
+				5C8DD2582A09F41C00DAD14E /* ComposeViewController.swift in Sources */,
 				5CA7CB1129F8086800658A68 /* VisitorView.swift in Sources */,
 				5CA7CB1729F81A3F00658A68 /* VisitorTableViewController.swift in Sources */,
+				5C8DD25C2A0A8F2C00DAD14E /* UIBarButtonItem+Extension.swift in Sources */,
 				5CA7CAFB29F7734400658A68 /* MainViewController.swift in Sources */,
 				5CEDF6B729FB6FBB001E907A /* NetworkTools.swift in Sources */,
 				5C9EE0EE29FD35A8009BD4AA /* UserAccountViewModel.swift in Sources */,
@@ -630,10 +823,18 @@
 				5CA7CB0B29F7C90F00658A68 /* UIButton+Extension.swift in Sources */,
 				5C8DD0FD29FFF62C00DAD14E /* StatusViewModel.swift in Sources */,
 				5C8DD1062A013B9000DAD14E /* StatusPictureView.swift in Sources */,
+				5C9E9EAE2A133BB70021684D /* FMDatabaseQueue.m in Sources */,
 				5C8DD1022A00048100DAD14E /* StatusCellTopView.swift in Sources */,
+				5C8DD2692A0ABE3200DAD14E /* EmoticonView.swift in Sources */,
 				5C8DD1082A02732A00DAD14E /* StatusRetweetedCell.swift in Sources */,
+				5C7F03FA2A15F06E00428FF8 /* String+Regex.swift in Sources */,
+				5C8DD31C2A0DEA2B00DAD14E /* ProgressimageView.swift in Sources */,
 				5C8DD0F729FFB47A00DAD14E /* Status.swift in Sources */,
+				5C9E9EB22A133BB70021684D /* FMResultSet.m in Sources */,
+				5C8DD3162A0C8FA900DAD14E /* PhotoBrowserViewController.swift in Sources */,
 				5CEDF6BD29FC1470001E907A /* UserAccount.swift in Sources */,
+				5C8DD31A2A0CACC800DAD14E /* PhotoBrowserCell.swift in Sources */,
+				5C8DD26B2A0ABE3200DAD14E /* EmoticonAttachment.swift in Sources */,
 				5C8DD0FB29FFEAF000DAD14E /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +1011,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.feiyu.test.------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "微博项目练习/Weibo-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -840,6 +1042,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.feiyu.test.------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "微博项目练习/Weibo-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

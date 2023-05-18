@@ -20,7 +20,13 @@ class Status: NSObject {
     var created_at: String?
     
     /// 微博来源
-    var source: String?
+    var source: String?{
+        didSet{
+            //过滤出文本，并且重新设置 source
+            //注意：在didSet内部重新给属性设置数值，不会再次调用didSet
+            source = source?.href()?.text
+        }
+    }
     
     ///缩略图配图数组---key为thumbnail_pic
     ///pic_urls是一个字典数组类型

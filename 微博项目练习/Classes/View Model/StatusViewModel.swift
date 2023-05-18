@@ -50,6 +50,12 @@ class StatusViewModel:CustomStringConvertible {
         
     }()*/
     
+    //微博发布日期 - 计算型属性
+    var createAt: String{
+        
+        return NSDate.sinaDate(string: status.created_at ?? "")!.dateDescription
+    }
+        
     //用户头像URL
     //头像在user内饰字符串，需要转换为URL才能用
     var userProfileUrl: NSURL{

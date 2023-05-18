@@ -6,10 +6,12 @@ target '微博项目练习' do
   use_frameworks!
 
   # Pods for 微博项目练习
-pod 'AFNetworking'
+
 pod 'SnapKit'
 pod 'SDWebImage'
 pod 'SVProgressHUD'
+pod 'Alamofire'
+pod 'FFLabel'
 
   target '微博项目练习Tests' do
     inherit! :search_paths

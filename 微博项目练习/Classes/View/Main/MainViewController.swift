@@ -8,11 +8,11 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-   
+    
     //MARK: 视图生命周期函数
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         addChilds()
         
         setupComposedButton()
@@ -30,11 +30,21 @@ class MainViewController: UITabBarController {
         // private 添加为私有
         // @objc 允许这个函数在运行时通过OC的消息机制被调用
         print("点击中间按钮")
+        
+        //判断用户是否登录
+        var vc: UIViewController
+        if UserAccountViewModel.sharedUserAccount.userLogin{
+            vc = ComposeViewController()
+        }else{
+            vc = OAuthViewController()
+        }
+        
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav,animated:true,completion:nil)
     }
-  
+    // MARK: - 中间的 + 号 按钮(懒加载按钮控件)
+    private var composedButton : UIButton = UIButton.cz_buttonImage( "tabbar_compose_icon_add", backImageName: "tabbar_compose_button")
 }
-// MARK: - 中间的 + 号 按钮(懒加载按钮控件)
-private var composedButton : UIButton = UIButton.cz_buttonImage( "tabbar_compose_icon_add", backImageName: "tabbar_compose_button")
 // MARK: - 设置界面
 extension MainViewController{
        // 设置添加按钮

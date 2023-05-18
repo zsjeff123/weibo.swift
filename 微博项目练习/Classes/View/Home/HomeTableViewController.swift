@@ -36,6 +36,43 @@ class HomeTableViewController: VisitorTableViewController{
         
         loadData()
         //refreshControl?.beginRefreshing()
+        
+        //注册通知--照片查看
+        //n是通知传送对象
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(WBStatusSelectedPhotoNotification), object: nil, queue: nil) { [weak self](n) in
+            
+            guard let indexPath = n.userInfo?[WBStatusSelectedPhotoIndexPathKey] as? NSIndexPath else{
+                return
+            }
+            guard let urls = n.userInfo?[WBStatusSelectedPhotoURLsKey] as? [NSURL] else{
+                return}
+            //判断cell是否遵守了展现动画的协议!!
+            guard let cell = n.object as? PhotoBrowserPresentDelegate else {
+                return
+            }
+            
+          let vc = PhotoBrowserViewController(urls: urls, indexPath: indexPath)
+            
+            //1.设置modal的类型是自定义类型--Transition(转场)
+            vc.modalPresentationStyle = UIModalPresentationStyle.custom
+            
+            //2.设置动画代理
+            vc.transitioningDelegate = self?.photoBrowserAnimator
+            
+            //3.设置animator的代理参数
+            //区分上面--一个是转场一个是动画
+            self?.photoBrowserAnimator.setDelegateParams(presentDelegate: cell, indexPath: indexPath, dismissDelegate: vc)
+            
+            //4.Modal展现！！！
+            //Modal 是一种用户界面模式，指的是在模态视图中显示内容的方式。在 iOS 应用程序中，模态视图通常以全屏或半屏的形式弹出，并在显示期间阻止用户与应用程序的其他部分进行交互。
+            //当模态视图被打开时，它会将应用程序的主视图层次结构暂时隐藏起来，并在其上方显示一个新的视图层次结构。
+            self?.present(vc, animated: true,completion: nil)
+        }
+    }
+    
+    //注销通知
+    deinit{
+        NotificationCenter.default.removeObserver(self)
     }
     
     ///准备表格
@@ -85,6 +122,10 @@ class HomeTableViewController: VisitorTableViewController{
                 return
             }
             print(self.listViewModel.statusList)
+            
+            //显示下拉刷新提示
+            self.showPulldownTip()
+            
             //刷新数据
             self.tableView.reloadData()
         }
@@ -123,7 +164,48 @@ class HomeTableViewController: VisitorTableViewController{
          
          }*/
        }
-    // MARK: - 懒加载控件--上拉刷新
+    
+    //显示下拉刷新
+    private func showPulldownTip(){
+        //如果不是下拉刷新直接返回
+        guard let count = listViewModel.pulldownCount else{
+            return
+        }
+        print("下拉刷新\(count)")
+        
+        pulldownTipLabel.text = (count == 0) ? "没有新微博" : "刷新到\(count)条微博"
+        
+     
+        
+        
+        let height:CGFloat = 44
+        let rect = CGRect(x: 0, y: 0, width: view.bounds.width, height: 44)
+        pulldownTipLabel.frame = CGRectOffset(rect, 0, -2.5 * height)
+        
+        //动画
+        UIView.animate(withDuration: 1.0,animations:{
+            self.pulldownTipLabel.frame = CGRectOffset(rect, 0, height)
+        }){(_) -> Void in
+            UIView.animate(withDuration: 1.0,animations:{
+                self.pulldownTipLabel.frame = CGRectOffset(rect, 0, -2.5 * height)
+            })
+        }
+        
+    }
+    
+    // MARK: - 懒加载控件
+    
+    //下拉刷新提示标签
+    private lazy var pulldownTipLabel: UILabel = {
+        
+        let label = UILabel.cz_messagelabel(title: "",fontSize: 18,color: UIColor.white)
+        label.backgroundColor = UIColor.orange
+    
+        //添加到navigationBar
+        navigationController?.navigationBar.insertSubview(label, at: 0)
+        
+        return label
+    }()
     ///上拉刷新提示视图
     private lazy var pullupView: UIActivityIndicatorView = {
         
@@ -131,6 +213,8 @@ class HomeTableViewController: VisitorTableViewController{
         indicator.color = UIColor.lightGray
         return indicator
     }()
+    ///照片查看转场动画代理
+    private lazy var photoBrowserAnimator:PhotoBrowserAnimator = PhotoBrowserAnimator()
 }
 
 

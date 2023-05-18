@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        //设置输出
+        //实际用处不大
+        QorumLogs.enabled = true
+        QorumLogs.test()
+        
+        
+        //设置AFN - 当通过AFN发起网络请求时，会在状态栏显示转动菊花（待定--看不太到效果）
+       // AFNetworkActivityIndicatorManager.shared().isEnabled = true
+        
         //调用全局外观
         setupAppearence()
         
@@ -45,9 +56,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
        */
         
+      
+        
         return true
     }
-    
+     //应用程序进入到后台
+     func applicationDidEnterBackground(_ application: UIApplication) {
+         //清除数据库缓存
+         StatusDAL.clearDataCache()
+         
+     }
+     
     deinit{
         //注销通知-注销指定的通知
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "WBSwitchRootViewControllerNotification"), object: nil)
@@ -68,9 +87,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
+    //func applicationDidEnterBackground(_ application: UIApplication) {
         
-    }
+   // }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
        

@@ -21,7 +21,9 @@ class StatusCell: UITableViewCell {
         didSet{
             //设置工作
             topView.viewModel = viewModel
-            contentLabel.text = viewModel?.status.text
+            
+            let text = viewModel?.status.text ?? ""
+            contentLabel.attributedText = EmoticonManager.sharedManager.emoticonText(string: text, font: contentLabel.font)
             
             //测试动态修改配图视图高度 - 实际开发中需要注意，如果动态修改约束的高度，可能会导致行高计算有误
             //在使用自动布局的时候，绝大多数报错，是因为约束错误或加多加少的原因

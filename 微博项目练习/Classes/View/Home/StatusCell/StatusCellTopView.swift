@@ -23,11 +23,14 @@ class StatusCellTopView: UIView {
            memeberIconView.image = viewModel?.userMemberImage
             //认证图标
             vipIconView.image = viewModel?.userVipImage
+            
+            // MARK: - TODO时间、来源转换后面写--已完成
             //时间
-            // MARK: -  TODO时间、来源转换后面写
-            timeLabel.text = "刚刚" //viewModel?.status.created_at
+            timeLabel.text = viewModel?.createAt
+            
             //来源
-            sourceLabel.text = "来自。。。"//viewModel?.status.source
+            sourceLabel.text = viewModel?.status.source
+            
         }
     }
     

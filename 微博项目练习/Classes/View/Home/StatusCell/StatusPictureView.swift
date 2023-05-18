@@ -53,6 +53,9 @@ class StatusPictureView: UICollectionView{
         //应用场景：自定义视图的小框架
         dataSource = self
         
+        //设置代理
+        delegate = self
+        
         //注册可重用Cell
         //用的是配图Cell
         register(StatusPictureViewCell.self, forCellWithReuseIdentifier: StatusPictureCellId)
@@ -63,8 +66,29 @@ class StatusPictureView: UICollectionView{
         fatalError("init(coder:) has not been implemented")
     }
 }
-// MARK: - UICollectionViewDataSource（数据源方法）
-extension StatusPictureView: UICollectionViewDataSource{
+// MARK: - UICollectionViewDataSource,UICollectionViewDelegate（数据源、代理方法）
+extension StatusPictureView: UICollectionViewDataSource,UICollectionViewDelegate{
+    
+    //代理
+    //选中照片
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        //测试
+        //photoBrowserPresentFromRect(indexPath: indexPath as NSIndexPath)
+       // photoBrowserPresentToRect(indexPath: indexPath as NSIndexPath)
+        
+        
+        print("点击照片\(indexPath)\(String(describing: viewModel?.thumbnailUrls))")
+        //传递的数据-->当前的URL数组/当前用户选中的索引
+        //通知：名字（通知中心监听），object（发送通知的同时传递对象--单值）。userInfo（发送通知的同时传递对象--多值---使用的数据字典，要定义key）
+        let userInfo = [WBStatusSelectedPhotoIndexPathKey: indexPath, WBStatusSelectedPhotoURLsKey: viewModel!.thumbnailUrls!] as [String : Any]
+        NotificationCenter.default.post(name: NSNotification.Name(WBStatusSelectedPhotoNotification), object: self, userInfo: userInfo)
+            
+    }
+    
+    
+    
+    //数据源
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return viewModel?.thumbnailUrls?.count ?? 0
@@ -81,6 +105,91 @@ extension StatusPictureView: UICollectionViewDataSource{
     }
     
     
+    
+}
+
+// MARK: - 照片查看器的展现协议
+extension StatusPictureView: PhotoBrowserPresentDelegate{
+    
+    //创建一个imageView来参与动画，原来的不动
+    func imageViewForPresent(indexPath: NSIndexPath) -> UIImageView {
+        
+        let iv = UIImageView()
+        //1.设置内容填充模式
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        
+        //2.设置图像（缩略图缓存）
+        //sdwebImage如果已经存在本地缓存，不会发起网络请求
+        if let url = viewModel?.thumbnailUrls?[indexPath.item]{
+            iv.sd_setImage(with: url as URL)
+            
+        }
+        
+        return iv
+        
+    }
+    
+    //起始位置
+    func photoBrowserPresentFromRect(indexPath: NSIndexPath) -> CGRect {
+        //1.根据 indexpath 获得用户选择的cell
+        let cell = self.cellForItem(at: indexPath as IndexPath)
+        
+        //2.通过cell知道cell对应在屏幕上的准确位置（cell--collectionview）
+        //在不同视图之间的‘坐标系的转换’,self.是cell的父视图!!!---convert方法
+        //由collectionview将cell的frame位置转换为keywindow的frame位置
+        let rect = self.convert(cell!.frame, to: UIApplication.shared.keyWindow!)
+
+        //       测试代码
+//        let v = UIView(frame: rect)
+//        v.backgroundColor = UIColor.red
+        
+//        let v = imageViewForPresent(indexPath: indexPath)
+//        v.frame = rect
+        
+     //   UIApplication.shared.keyWindow?.addSubview(v)
+        
+        return rect
+    }
+      //目标位置
+    func photoBrowserPresentToRect(indexPath: NSIndexPath) -> CGRect {
+        
+        //根据缩略图的大小，等比例计算目标位置
+        guard let key = viewModel?.thumbnailUrls?[indexPath.item].absoluteString else{
+            return CGRectZero
+        }
+        
+        //从sdwebimage获取本地缓存图片
+        guard let image = SDImageCache.shared.diskImageData(forKey: key) else{
+            return CGRectZero
+        }
+        //根据图像大小，计算全屏的大小
+        var rect = CGRect.zero // 将 rect 变量的声明放在外部
+        // 根据图像大小，计算全屏的大小
+        if let image = UIImage(data: image) {
+            let w = UIScreen.main.bounds.width
+            var h = image.size.height * w / image.size.width
+            // 对高度进行额外处理--可能超出屏幕
+            let screenHeight = UIScreen.main.bounds.height
+            var y: CGFloat = 0
+            if h < screenHeight {
+                // 图片短，垂直居中显示
+                y = (screenHeight - h) * 0.5
+            } else {
+                // 图片高度超出屏幕，调整高度并居上显示
+                
+            }
+            rect = CGRect(x: 0, y: y, width: w, height: h)
+            
+        }
+        //测试位置
+//                let v = imageViewForPresent(indexPath: indexPath)
+//                v.frame = rect
+//
+//                UIApplication.shared.keyWindow?.addSubview(v)
+        
+        return rect
+    }
     
 }
 
@@ -165,6 +274,10 @@ private class StatusPictureViewCell:UICollectionViewCell{
                                  placeholderImage: nil,
                                  options: [SDWebImageOptions.retryFailed,
                                     SDWebImageOptions.refreshCached])
+            
+            //根据文件扩展名判断是否是gif,但是不是所有的gif都会动
+            let ext = (((imageURL?.absoluteString ?? "") as NSString).pathExtension)
+            gifIconView.isHidden = (ext != "gif")
             /*注释：
 iconView.sd_setImage(with: imageURL as URL?,
             placeholderImage: nil,  //在调用OC的框架时，可/必选项不严格
@@ -187,9 +300,15 @@ iconView.sd_setImage(with: imageURL as URL?,
     private func setupUI(){
         //1.添加控件
         contentView.addSubview(iconView)
+        iconView.addSubview(gifIconView)
+        
         //2.设置布局--提示因为cell的图片会变化，另外，不同的cell大小可能不一样
         iconView.snp.makeConstraints { (make) -> Void  in
             make.edges.equalTo(contentView.snp.edges)
+        }
+        gifIconView.snp.makeConstraints { (make) -> Void  in
+            make.right.equalTo(iconView.snp.right)
+            make.bottom.equalTo(iconView.snp.bottom)
         }
     }
     
@@ -202,5 +321,8 @@ iconView.sd_setImage(with: imageURL as URL?,
         return iv
     }()
     
+    //GIF提示图片
+    private lazy var gifIconView: UIImageView = UIImageView.cz_iconViewImage(imageName: "timeline_image_gif")
 }
+
 

@@ -15,6 +15,9 @@ class StatusListViewModel{
     //[Status]()-->实例化
     lazy var statusList = [StatusViewModel]()
     
+    //下拉刷新计数
+    var pulldownCount: Int?
+    
     //加载网络数据
     //闭包
     //isPullup是否上拉刷新
@@ -25,6 +28,19 @@ class StatusListViewModel{
         let since_id = isPullup ? 0 :(statusList.first?.status.id ?? 0)
         //上拉刷新---数组中最后一条微博的id
         let max_id = isPullup ? (statusList.last?.status.id ?? 0) : 0
+        
+        StatusDAL.loadStatus(since_id: since_id, max_id: max_id) { array in
+            
+            //如果数组为nil，表示出错
+            guard let array = array else{
+                completion(false)
+                
+                return
+            }
+            
+  /*
+   （这段代码在引用数据库后无用可删）
+   }
         
         NetworkTools.sharedTools.loadStatus (since_id: since_id, max_id: max_id){ result, error in
             
@@ -44,6 +60,12 @@ class StatusListViewModel{
                 completion(false)
                 return
             }
+            
+            //----缓存网络数据----
+            StatusDAL.saveCacheData(array: array)
+   */
+            
+            
             //遍历字典的数组，字典转模型
             //1.可变的数组
             var dataList = [StatusViewModel]()
@@ -53,6 +75,8 @@ class StatusListViewModel{
                 
             }
             print("刷新到\(dataList.count)")
+            //记录下拉刷新的数据
+            self.pulldownCount = (since_id > 0) ?  dataList.count : nil
             
             //3.拼接数据
             //下拉往上拼接，上拉往下
@@ -102,7 +126,7 @@ class StatusListViewModel{
             group.enter()
             
             //SDWebImage的核心下载函数，如果本地缓存已经存在，同样会通过完成回调返回
-            SDWebImageManager.shared.loadImage(with: url as URL, options: [SDWebImageOptions.retryFailed, SDWebImageOptions.refreshCached], progress: nil, completed: { (image, _, _, _, _, _) -> Void  in
+            SDWebImageManager.shared.loadImage(with: url as URL, options: [ ], progress: nil, completed: { (image, _, _, _, _, _) -> Void  in
                
                 //单张图片下载完成---计算长度
                 //判断image是否为空

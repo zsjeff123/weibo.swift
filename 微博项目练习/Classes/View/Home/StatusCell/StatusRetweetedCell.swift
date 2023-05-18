@@ -19,7 +19,8 @@ class StatusRetweetedCell: StatusCell {
     override var viewModel : StatusViewModel?{
         didSet{
             //转发微博的文字
-            retweetedLabel.text = viewModel?.retweetedText
+            let text = viewModel?.retweetedText ?? ""
+            retweetedLabel.attributedText = EmoticonManager.sharedManager.emoticonText(string: text, font: retweetedLabel.font)
             
             //修改配图视图顶部位置
             pictureView.snp.updateConstraints{(make) -> Void in
